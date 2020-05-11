@@ -84,7 +84,7 @@ router.post('/users/login', asyncHandler(async (req, res) => {
         res.json({ error: {message: "Cannot find user!"} });
     }
     if(await bcrypt.compare(req.body.password, user.dataValues.password)){
-        return true
+        res.json({message: "Logged in"})
     }else{
         res.send("WRONG PASSWORD!")
     }
