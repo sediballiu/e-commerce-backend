@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 sequelize.sync({ force: true })
 .then(async () =>{
-    console.log('Sequelize sync....');
+    console.log('Sequelize sync...');
 })
 .catch(error => {
     console.log(error);
