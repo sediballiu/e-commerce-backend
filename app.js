@@ -7,6 +7,9 @@ const { sequelize } = require('./db');
 app.use(express.json());
 app.use('/api', routes);
 
+app.get('/', (req, res) => {
+    res.send("OKAY!!!")
+})
 
 sequelize.sync({ force: true })
 .then(async () =>{
