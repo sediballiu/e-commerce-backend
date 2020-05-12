@@ -16,11 +16,7 @@ function asyncHandler(callBack){
 }
 
 router.get('/products', asyncHandler(async (req, res) => {
-    const products = await Product.findAll({where: 
-        {leftInStock: 
-            {[Op.gt]: 0}
-        }
-    });
+    const products = await Product.findAll();
     return res.json(products);
 }))
 
