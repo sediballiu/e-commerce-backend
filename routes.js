@@ -16,7 +16,7 @@ function asyncHandler(callBack){
 }
 
 router.get('/products', asyncHandler(async (req, res) => {
-    const products = await Product.findAll([["updatedAt", "DESC"]]);
+    const products = await Product.findAll({ order: [['updatedAt', 'DESC']]});
     return res.json(products);
 }))
 
