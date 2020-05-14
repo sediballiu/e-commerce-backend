@@ -49,9 +49,10 @@ router.put('/products/:id', asyncHandler(async (req, res) => {
     const product = await Product.findByPk(id);
     if(product === null){
         return res.json({error: {message: "Product does not exist!"}})
-    }
+    }else{
     const updatedProduct = await product.update(req.body, { where: { id: id } })
-    return res.json({message: "Product updated!"});
+    return res.json({message: "Product updated!", product: updatedProduct});
+    }
 }))
 
 // users routes
